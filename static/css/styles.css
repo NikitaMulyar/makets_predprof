@@ -28,3 +28,9 @@ main > .container {
   padding-bottom: 5rem;
   padding-top: 10rem;
 }
+.container > .card {
+    background-color: var(--background) !important;
+}
+.container > .card:hover {
+    background-color: var(--accent);
+}
