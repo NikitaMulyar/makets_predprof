@@ -1,8 +1,8 @@
 * {
   --text: #b5ffe1;
   --background: #000F14;
-  --primary: #6eede9;
-  --secondary: #075044;
+  --primary: #65B9EA;
+  --secondary: #005457;
   --accent: #010518;
 }
 body {
@@ -14,4 +14,17 @@ header {
     position: fixed;
     width: 100%;
     z-index: 7;
+}
+.btn {
+    border-color: var(--secondary);
+    border: solid 1px;
+    color: var(--secondary);
+}
+.btn:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+main > .container {
+  padding-bottom: 5rem;
+  padding-top: 10rem;
 }
