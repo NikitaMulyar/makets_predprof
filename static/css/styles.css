@@ -1,0 +1,17 @@
+* {
+  --text: #b5ffe1;
+  --background: #000F14;
+  --primary: #6eede9;
+  --secondary: #075044;
+  --accent: #010518;
+}
+body {
+ color: var(--text);
+ background-color: var(--background) !important;
+}
+header {
+    background-color: var(--accent);
+    position: fixed;
+    width: 100%;
+    z-index: 7;
+}
