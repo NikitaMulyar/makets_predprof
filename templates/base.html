@@ -29,11 +29,22 @@
         </ul>
 
         <div class="text-end">
+         {%if false%}
           <div class="btn-group">
             <button type="button" class="btn">Login</button>
             <button type="button" class="btn">Sign-up</button>
           </div>
-
+          {%else%}
+            <div class="dropdown text-end">
+              <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="/static/img/profile-pic.png" alt="mdo" width="32" height="32" class="rounded-circle">
+              </a>
+              <ul class="dropdown-menu text-small">
+                <li><a class="dropdown-item" href="/user">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+              </ul>
+            </div>
+            {%endif%}
         </div>
       </div>
     </div>

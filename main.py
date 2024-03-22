@@ -24,5 +24,9 @@ def index():
 def cards():
     return render_template('cards.html')
 
+@app.route('/user')
+def user():
+    return render_template('user.html')
+
 if __name__ == '__main__':
     app.run(port=int(port), host=host)

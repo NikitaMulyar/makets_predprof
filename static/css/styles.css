@@ -24,13 +24,22 @@ header {
     background-color: var(--primary);
     border-color: var(--primary);
 }
-main > .container {
+main > .container, main{
   padding-bottom: 5rem;
-  padding-top: 10rem;
+  padding-top: 5rem;
 }
-.container > .card {
-    background-color: var(--background) !important;
+.card {
+    background-color: var(--background);
 }
-.container > .card:hover {
+.card:hover {
     background-color: var(--accent);
+}
+.dropdown-menu {
+    background-color: var(--accent);
+}
+.dropdown-item{
+    color: var(--text);
+}
+.dropdown-item:hover {
+    background-color: var(--secondary);
 }
