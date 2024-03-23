@@ -1,9 +1,9 @@
 * {
-  --text: #b5ffe1;
-  --background: #000F14;
-  --primary: #65B9EA;
-  --secondary: #005457;
-  --accent: #010518;
+  --text: #ffffff;
+  --background: #0d0a1c;
+  --primary: #332971;
+  --secondary: #46399c;
+  --accent: #161136;
 }
 body {
  color: var(--text);
@@ -33,6 +33,7 @@ main > .container, main{
 }
 .card:hover {
     background-color: var(--accent);
+    filter: brightness(130%);
 }
 .dropdown-menu {
     background-color: var(--accent);
@@ -42,4 +43,8 @@ main > .container, main{
 }
 .dropdown-item:hover {
     background-color: var(--secondary);
+}
+.list-group > .active {
+    background-color: var(--accent) !important;
+    border: none;
 }
