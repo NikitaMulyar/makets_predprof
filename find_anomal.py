@@ -58,6 +58,7 @@ for id_anom in mp:
         sum_int0 += ias['rate'] * sq_r
     int0 = sum_int0 / len(mp[id_anom])
     print(best_x, best_y, int0)
+    print()
 
 # def data_circle(a, b):
 #     k = math.sqrt(b['rate'] / a['rate'])
