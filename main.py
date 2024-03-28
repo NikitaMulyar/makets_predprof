@@ -85,6 +85,11 @@ def graph():
     return render_template('datta.html')
 
 
+@app.route('/sidorovich')
+def sidorovich():
+    return render_template('sidorovich.html')
+
+
 if __name__ == '__main__':
     db_session.global_init("db/database.db")
     app.run(port=int(port), host=host)
