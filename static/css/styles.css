@@ -65,3 +65,6 @@ main > .container, main{
     width: 100%;
     height: auto;
 }
+.dropdown-toggle, .dropdown-toggle:hover {
+    color: var(--primary);
+}
