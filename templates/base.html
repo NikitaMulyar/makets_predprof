@@ -31,7 +31,7 @@
         <div class="text-end">
             {%if not current_user.is_authenticated %}
           <div class="btn-group">
-            <button type="button" class="btn">Добавить сталкера</button>
+            <a class="btn" href="/register">Добавить сталкера</a>
           </div>
             {%else%}
             <div class="dropdown text-end">
@@ -44,6 +44,7 @@
                 <li><a class="dropdown-item" href="/logout">Sign out</a></li>
               </ul>
             </div>
+            {%endif%}
         </div>
       </div>
     </div>

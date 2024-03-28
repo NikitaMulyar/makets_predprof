@@ -48,3 +48,7 @@ main > .container, main{
     background-color: var(--accent) !important;
     border: none;
 }
+.map {
+    width: 50rem;
+    height: auto;
+}
