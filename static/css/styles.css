@@ -1,9 +1,9 @@
 * {
-  --text: #ffffff;
-  --background: #0d0a1c;
-  --primary: #332971;
-  --secondary: #46399c;
-  --accent: #161136;
+  --text: black;
+  --background: #ffffff;
+  --primary: #6EEDE9;
+  --secondary: #6EEDE9;
+  --accent: #005C2F;
 }
 body {
  color: var(--text);
@@ -23,6 +23,17 @@ header {
 .btn:hover {
     background-color: var(--primary);
     border-color: var(--primary);
+    text: var(--background) !important;
+}
+.btn1 {
+    border-color: var(--accent) !important;
+    border: solid 1px;
+    color: var(--accent) !important;
+}
+.btn1:hover {
+    border-color: var(--accent) !important;
+    background-color: var(--accent) !important;
+    color: var(--background) !important;
 }
 main > .container, main{
   padding-bottom: 5rem;

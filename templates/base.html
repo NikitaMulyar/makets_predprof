@@ -21,7 +21,7 @@
 <!--        </a>-->
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="/" class="nav-link px-2 text-secondary">Карта</a></li>
+          <li><a href="/" class="nav-link px-2 text-white">Карта</a></li>
           <li><a href="/cards" class="nav-link px-2 text-white">Данные</a></li>
           <li><a href="#" class="nav-link px-2 text-white">Сидорович</a></li>
 <!--          <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>-->
@@ -32,6 +32,7 @@
 <!--            {%if not current_user.is_authenticated %}-->
           <div class="btn-group">
             <a class="btn" href="/register">Добавить сталкера</a>
+              <a class="btn" href="/login">Я уже смешарик</a>
           </div>
 <!--            {%else%}-->
             <div class="dropdown text-end">
@@ -41,7 +42,7 @@
               <ul class="dropdown-menu text-small">
                 <li><a class="dropdown-item" href="/user">Кто я</a></li>
                 <li><a class="dropdown-item" href="/add">Добавить точку</a></li>
-                <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+                <li><a class="dropdown-item" href="/logout">теперь я уже не хочу</a></li>
               </ul>
             </div>
 <!--            {%endif%}-->
