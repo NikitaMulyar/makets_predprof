@@ -35,7 +35,8 @@ for id_anom in mp:
     for x in range(1, 41):
         for y in range(1, 31):
             loc_sum_error = 0
-            for i in range(0, mp[id_anom].size() - 1):
+            #print(mp[id_anom])
+            for i in range(0, len(mp[id_anom]) - 1):
                 a = mp[id_anom][i]
                 b = mp[id_anom][i + 1]
                 ideal_k = a['rate'] / b['rate']
@@ -43,8 +44,9 @@ for id_anom in mp:
                 pair_cor2 = b['coords']
                 sq_r1 = pow(pair_cor1[0] - x, 2) + pow(pair_cor1[1] - y, 2)
                 sq_r2 = pow(pair_cor2[0] - x, 2) + pow(pair_cor2[1] - y, 2)
-                real_k = sq_r2 / sq_r1
-                loc_sum_error += abs(real_k - ideal_k)
+                if sq_r1 != 0:
+                    real_k = sq_r2 / sq_r1
+                    loc_sum_error += abs(real_k - ideal_k)
             if loc_sum_error < sum_error:
                 sum_error = loc_sum_error
                 best_x = x
@@ -54,7 +56,8 @@ for id_anom in mp:
         pair_cor = ias['coords']
         sq_r = pow(pair_cor[0] - best_x, 2) + pow(pair_cor[1] - best_y, 2)
         sum_int0 += ias['rate'] * sq_r
-    int0 = sum_int0 / mp[id_anom].size()
+    int0 = sum_int0 / len(mp[id_anom])
+    print(best_x, best_y, int0)
 
 # def data_circle(a, b):
 #     k = math.sqrt(b['rate'] / a['rate'])
