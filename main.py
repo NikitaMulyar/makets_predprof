@@ -79,6 +79,12 @@ def logout():
 def add():
     return render_template('add.html')
 
+
+@app.route('/graph')
+def graph():
+    return render_template('datta.html')
+
+
 if __name__ == '__main__':
     db_session.global_init("db/database.db")
     app.run(port=int(port), host=host)

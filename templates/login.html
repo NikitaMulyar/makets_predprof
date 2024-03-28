@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<main role="main" style="width: 25%; margin: auto; padding-top: 10%;  color: #f0f8ff">
+<main role="main" style="width: 25%; margin: auto; padding-top: 10%;">
     <h1>Авторизация</h1>
 
     <form action="" method="post">
@@ -26,7 +26,7 @@
             {% endfor %}
         </p>
         <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-        <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        <p>{{ form.submit(type="submit", class="btn1 btn") }}</p>
         <div>{{ message }}</div>
     </form>
 </main>

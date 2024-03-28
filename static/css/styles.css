@@ -37,7 +37,7 @@ header {
 }
 main > .container, main{
   padding-bottom: 5rem;
-  padding-top: 5rem;
+  padding-top: 3rem;
 }
 .card {
     background-color: var(--background);
@@ -60,6 +60,6 @@ main > .container, main{
     border: none;
 }
 .map {
-    width: 50rem;
+    width: 100%;
     height: auto;
 }
