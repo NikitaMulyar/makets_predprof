@@ -29,12 +29,12 @@
         </ul>
 
         <div class="text-end">
-<!--            {%if not current_user.is_authenticated %}-->
+        {%if not current_user.is_authenticated %}
           <div class="btn-group">
             <a class="btn" href="/register">Добавить сталкера</a>
               <a class="btn" href="/login">Я уже смешарик</a>
           </div>
-<!--            {%else%}-->
+            {%else%}
             <div class="dropdown text-end">
               <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="/static/img/profile-pic.png" alt="mdo" width="32" height="32" class="rounded-circle">
@@ -45,7 +45,7 @@
                 <li><a class="dropdown-item" href="/logout">теперь я уже не хочу</a></li>
               </ul>
             </div>
-<!--            {%endif%}-->
+            {%endif%}
         </div>
       </div>
     </div>
