@@ -1,76 +1,92 @@
 * {
-  --text: black;
-  --background: #ffffff;
-  --primary: #6EEDE9;
-  --secondary: #6EEDE9;
-  --accent: #005C2F;
+    --text: black;
+    --background: #ffffff;
+    --primary: #6EEDE9;
+    --secondary: #6EEDE9;
+    --accent: #005C2F;
 }
+
 body {
- color: var(--text);
- background-color: var(--background) !important;
+    color: var(--text);
+    background-color: var(--background) !important;
 }
+
 header {
     background-color: var(--accent);
     position: fixed;
     width: 100%;
     z-index: 7;
 }
+
 .btn {
     border-color: var(--secondary);
     border: solid 1px;
     color: var(--secondary);
 }
+
 .btn:hover {
     background-color: var(--primary);
     border-color: var(--primary);
     text: var(--background) !important;
 }
+
 .btn1 {
     border-color: var(--accent) !important;
     border: solid 1px;
     color: var(--accent) !important;
 }
+
 .btn1:hover {
     border-color: var(--accent) !important;
     background-color: var(--accent) !important;
     color: var(--background) !important;
 }
 
-main > .container, main{
-  padding-bottom: 5rem;
-  padding-top: 3rem;
+main > .container, main {
+    padding-bottom: 5rem;
+    padding-top: 3rem;
 }
+
 .kvas {
     vertical-align: center !important;
 }
+
 .card {
     background-color: var(--background);
 }
+
 .card:hover {
     background-color: var(--accent);
     filter: brightness(130%);
 }
+
 .dropdown-menu {
     background-color: var(--accent);
 }
-.dropdown-item{
+
+.dropdown-item {
     color: var(--background);
 }
+
 .dropdown-item:hover {
     background-color: var(--secondary);
     color: var(--text);
 }
+
 .list-group > .active {
     background-color: var(--accent) !important;
     border: none;
 }
+
 .map {
     width: 100%;
     height: auto;
 }
+
 .dropdown-toggle, .dropdown-toggle:hover {
     color: var(--primary);
 }
+
 .prof {
     filter: brightness(160%);
 }

@@ -5,6 +5,7 @@ from forms.add_point import Point
 from forms.add_route import Route
 from data import db_session
 from data.users import User
+from map_parser import create_map
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key'
@@ -20,9 +21,9 @@ path = f'http://{host}:{port}'
 def index():
     form = Route()
     if form.validate_on_submit():
-        coor_ax, coor_ay = form.coor_ax.data, form.coor_ay.data
-        coor_bx, coor_by = form.coor_bx.data, form.coor_by.data
-        print(coor_ax, coor_ay, coor_bx, coor_by)
+        coor_a = form.coor_ax.data, form.coor_ay.data
+        coor_b = form.coor_bx.data, form.coor_by.data
+        create_map(coor_a, coor_b)
         return render_template('index.html', form=form)
     return render_template('index.html', form=form)
 
@@ -32,10 +33,12 @@ def index():
 def user():
     return render_template('user.html')
 
+
 @login_manager.user_loader
 def load_user(user_id):
     db_sess = db_session.create_session()
     return db_sess.query(User).get(user_id)
+
 
 # ЛОГИНИМСЯ
 @app.route('/login', methods=['GET', 'POST'])
