@@ -21,30 +21,31 @@
 <!--        </a>-->
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="/" class="nav-link px-2 text-secondary">Карта</a></li>
-          <li><a href="/cards" class="nav-link px-2 text-white">Данные</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Сидорович</a></li>
+          <li><a href="/" class="nav-link px-2 text-white">Карта</a></li>
+          <li><a href="/graph" class="nav-link px-2 text-white">Данные</a></li>
+          <li><a href="/sidorovich" class="nav-link px-2 text-white">Сидорович</a></li>
 <!--          <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>-->
 <!--          <li><a href="#" class="nav-link px-2 text-white">About</a></li>-->
         </ul>
 
         <div class="text-end">
-<!--            {%if not current_user.is_authenticated %}-->
+        {%if not current_user.is_authenticated %}
           <div class="btn-group">
             <a class="btn" href="/register">Добавить сталкера</a>
+              <a class="btn" href="/login">Я уже смешарик</a>
           </div>
-<!--            {%else%}-->
+            {%else%}
             <div class="dropdown text-end">
               <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="/static/img/profile-pic.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                <img src="/static/img/stalker.jpg" alt="mdo" width="40" height="40" class="rounded-circle prof">
               </a>
               <ul class="dropdown-menu text-small">
                 <li><a class="dropdown-item" href="/user">Кто я</a></li>
                 <li><a class="dropdown-item" href="/add">Добавить точку</a></li>
-                <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+                <li><a class="dropdown-item" href="/logout">теперь я уже не хочу</a></li>
               </ul>
             </div>
-<!--            {%endif%}-->
+            {%endif%}
         </div>
       </div>
     </div>

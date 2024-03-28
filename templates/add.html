@@ -1,6 +1,197 @@
 {% extends "base.html" %}
 
+{% block content %}
+<main role="main" style="width: 50%; margin: auto; padding-top: 10%;">
+    <h1>{{ title }}</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.id_point.label }}<br>
+            {{ form.id_point(class="form-control") }}<br>
+            {% for error in form.id_point.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+        </p>
 
-{% block content%}
+        <div class="row">
+            <div class="col-sm">
+                <p>
+                    {{ form.coor_x.label }}<br>
+                    {{ form.coor_x(class="form-control") }}<br>
+                    {% for error in form.coor_x.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+                </p>
+            </div>
+            <div class="col-sm">
+                <p>
+                    {{ form.coor_y.label }}<br>
+                    {{ form.coor_y(class="form-control") }}<br>
+                    {% for error in form.coor_y.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+                </p>
+            </div>
+        </div>
 
-{%endblock%}
+
+        <div class="row">
+            <div class="col-sm">
+                <p>
+                    {{ form.anomalia_id_1.label }}<br>
+                    {{ form.anomalia_id_1(class="form-control") }}<br>
+                    {% for error in form.anomalia_id_1.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+                </p>
+            </div>
+            <div class="col-sm">
+                <p>
+                    {{ form.anomali_rate_1.label }}<br>
+                    {{ form.anomali_rate_1(class="form-control") }}<br>
+                    {% for error in form.anomali_rate_1.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <p>
+                    {{ form.anomalia_id_2.label }}<br>
+                    {{ form.anomalia_id_2(class="form-control") }}<br>
+                    {% for error in form.anomalia_id_2.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+                </p>
+            </div>
+            <div class="col-sm">
+                <p>
+                    {{ form.anomali_rate_2.label }}<br>
+                    {{ form.anomali_rate_2(class="form-control") }}<br>
+                    {% for error in form.anomali_rate_2.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <p>
+                    {{ form.anomalia_id_3.label }}<br>
+                    {{ form.anomalia_id_3(class="form-control") }}<br>
+                    {% for error in form.anomalia_id_3.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+                </p>
+            </div>
+            <div class="col-sm">
+                <p>
+                    {{ form.anomali_rate_3.label }}<br>
+                    {{ form.anomali_rate_3(class="form-control") }}<br>
+                    {% for error in form.anomali_rate_3.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <p>
+                    {{ form.anomalia_id_4.label }}<br>
+                    {{ form.anomalia_id_4(class="form-control") }}<br>
+                    {% for error in form.anomalia_id_4.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+                </p>
+            </div>
+            <div class="col-sm">
+                <p>
+                    {{ form.anomali_rate_4.label }}<br>
+                    {{ form.anomali_rate_4(class="form-control") }}<br>
+                    {% for error in form.anomali_rate_4.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <p>
+                    {{ form.anomalia_id_5.label }}<br>
+                    {{ form.anomalia_id_5(class="form-control") }}<br>
+                    {% for error in form.anomalia_id_5.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+                </p>
+            </div>
+            <div class="col-sm">
+                <p>
+                    {{ form.anomali_rate_5.label }}<br>
+                    {{ form.anomali_rate_5(class="form-control") }}<br>
+                    {% for error in form.anomali_rate_5.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <p>
+                    {{ form.anomalia_id_6.label }}<br>
+                    {{ form.anomalia_id_6(class="form-control") }}<br>
+                    {% for error in form.anomalia_id_6.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+                </p>
+            </div>
+            <div class="col-sm">
+                <p>
+                    {{ form.anomali_rate_6.label }}<br>
+                    {{ form.anomali_rate_6(class="form-control") }}<br>
+                    {% for error in form.anomali_rate_6.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+                </p>
+            </div>
+        </div>
+
+        <p>{{ form.submit(type="submit", class="btn1 btn") }}</p>
+        {{message}}
+    </form>
+    {% endblock %}

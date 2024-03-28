@@ -1,6 +1,8 @@
 from flask import Flask, render_template, redirect, abort, request
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from forms.user import RegisterForm, LoginForm
+from forms.add_point import Point
+from forms.add_route import Route
 from data import db_session
 from data.users import User
 
@@ -14,9 +16,15 @@ path = f'http://{host}:{port}'
 
 
 # ГЛАВНАЯ СТРАНИЦА
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    form = Route()
+    if form.validate_on_submit():
+        coor_ax, coor_ay = form.coor_ax.data, form.coor_ay.data
+        coor_bx, coor_by = form.coor_bx.data, form.coor_by.data
+        print(coor_ax, coor_ay, coor_bx, coor_by)
+        return render_template('index.html', form=form)
+    return render_template('index.html', form=form)
 
 
 # ТУТ БУДЕТ ЛИЧНАЯ СТРАНИЧКА ПОЛЬЗОВАТЕЛЯ
@@ -35,7 +43,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         db_sess = db_session.create_session()
-        user = db_sess.query(User).filter(User.email == form.email.data).first()
+        user = db_sess.query(User).filter(User.login == form.login.data).first()
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
             return redirect("/")
@@ -51,14 +59,13 @@ def register():
         if form.password.data != form.password_again.data:
             return render_template('register.html', title='Регистрация', form=form, message="Пароли не совпадают")
         db_sess = db_session.create_session()
-        if db_sess.query(User).filter(User.email == form.email.data).first():
+        if db_sess.query(User).filter(User.login == form.login.data).first():
             return render_template('register.html', title='Регистрация', form=form,
                                    message="Такой пользователь уже есть")
         user = User(
             name=form.name.data,
-            email=form.email.data,
-            surname=form.surname.data,
-            speciality=form.speciality.data
+            login=form.login.data,
+            surname=form.surname.data
         )
         user.set_password(form.password.data)
         db_sess.add(user)
@@ -75,10 +82,38 @@ def logout():
     return redirect("/")
 
 
-@app.route('/add')
+@app.route('/add', methods=['GET', 'POST'])
 def add():
-    return render_template('add.html')
+    form = Point()
+    if form.validate_on_submit():
+        if form.password.data != form.password_again.data:
+            return render_template('register.html', title='Регистрация', form=form, message="Пароли не совпадают")
+        db_sess = db_session.create_session()
+        if db_sess.query(User).filter(User.login == form.login.data).first():
+            return render_template('register.html', title='Регистрация', form=form,
+                                   message="Такой пользователь уже есть")
+        user = User(
+            name=form.name.data,
+            login=form.login.data,
+            surname=form.surname.data
+        )
+        user.set_password(form.password.data)
+        db_sess.add(user)
+        db_sess.commit()
+        return redirect('/')
+    return render_template('add.html', title='Изменить данные', form=form)
+
+
+@app.route('/graph')
+def graph():
+    return render_template('datta.html')
+
+
+@app.route('/sidorovich')
+def sidorovich():
+    return render_template('sidorovich.html')
+
 
 if __name__ == '__main__':
-    # db_session.global_init("db/database.db")
+    db_session.global_init("db/database.db")
     app.run(port=int(port), host=host)

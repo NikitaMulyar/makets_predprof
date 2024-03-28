@@ -2,15 +2,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<main role="main" style="width: 25%; margin: auto; padding-top: 10%;  color: #f0f8ff">
+<main role="main" style="width: 25%; margin: auto; padding-top: 10%;">
     <h1>Авторизация</h1>
 
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
-            {{ form.email.label }}<br>
-            {{ form.email(class="form-control", type="email") }}<br>
-            {% for error in form.email.errors %}
+            {{ form.login.label }}<br>
+            {{ form.login(class="form-control") }}<br>
+            {% for error in form.login.errors %}
                 <div class="alert alert-danger" role="alert">
                     {{ error }}
                 </div>
@@ -26,7 +26,7 @@
             {% endfor %}
         </p>
         <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-        <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        <p>{{ form.submit(type="submit", class="btn1 btn") }}</p>
         <div>{{ message }}</div>
     </form>
 </main>
