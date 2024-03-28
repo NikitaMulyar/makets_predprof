@@ -68,3 +68,6 @@ main > .container, main{
 .dropdown-toggle, .dropdown-toggle:hover {
     color: var(--primary);
 }
+.prof {
+    filter: brightness(160%);
+}
