@@ -50,10 +50,11 @@ main > .container, main{
     background-color: var(--accent);
 }
 .dropdown-item{
-    color: var(--text);
+    color: var(--background);
 }
 .dropdown-item:hover {
     background-color: var(--secondary);
+    color: var(--text);
 }
 .list-group > .active {
     background-color: var(--accent) !important;
