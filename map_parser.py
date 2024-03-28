@@ -51,3 +51,38 @@ def draw_anomalous(arr):
 
 if __name__ == "__main__":
     draw_anomalous(get_data_anomauls())
+
+s = (0, 0)
+f = (35, 25)
+used = {(i, j): 0 for i in range(width) for j in range(height)}
+dist = {(i, j): 10 ** 9 for i in range(width) for j in range(height)}
+par = {(i, j): (-1, -1) for i in range(width) for j in range(height)}
+dist[s] = 0
+now = s
+for i in range(width):
+    for j in range(height):
+        used[now] = 1
+        for nxt in matrix[now]:
+            if dist[(nxt[0], nxt[1])] > nxt[2] + dist[now]:
+                par[(nxt[0], nxt[1])] = now
+                dist[(nxt[0], nxt[1])] = nxt[2] + dist[now]
+        mn_ind = 10**9
+        ind = (-1, -1)
+        for i1 in range(width):
+            for j1 in range(height):
+                if used[(i1, j1)] == 0 and dist[(i1, j1)] < mn_ind:
+                    ind = (i1, j1)
+                    mn_ind = dist[(i1, j1)]
+        if ind == now or mn_ind == 10 ** 9:
+            break
+        now = ind
+
+answer = []
+if dist[f] != 10 ** 9:
+    cur = f
+    while cur != s:
+        answer.append(cur)
+        cur = par[cur]
+    answer.append(s)
+    answer.reverse()
+    print(answer)
