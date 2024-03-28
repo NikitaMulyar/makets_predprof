@@ -2,14 +2,16 @@
 
     {% block content %}
         <main>
-            <div class="container kvas">
+            <div class="container">
+                {%if current_user.is_authenticated %}
                 <form action="" method="post">
 
                     <button type="submit" class="btn1 btn">куда идти, если я не хочу сдохнуть?</button>
                 </form>
-
-
                 <img src="/static/img/map.png" class="map pt-3">
+                {%else%}
+                <img src="/static/img/map.png" class="map pt-3">
+                {%endif%}
             </div>
 
         </main>
