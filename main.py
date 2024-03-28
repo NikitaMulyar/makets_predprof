@@ -24,6 +24,10 @@ def index():
 def user():
     return render_template('user.html')
 
+@login_manager.user_loader
+def load_user(user_id):
+    db_sess = db_session.create_session()
+    return db_sess.query(User).get(user_id)
 
 # ЛОГИНИМСЯ
 @app.route('/login', methods=['GET', 'POST'])
