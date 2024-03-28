@@ -1,5 +1,6 @@
 from PIL import Image, ImageDraw
 from math import sqrt
+from find_anomal import get_data_anomauls
 
 
 width = 40
@@ -24,12 +25,7 @@ def fill_graph():
 
 
 def draw_anomalous(arr):
-    """
-    :param arr: List of tuples like: (x, y, val), where
-    val - maximum value of the anomalous in (x, y)
-    :return:
-    """
-    im = Image.open("map.png")
+    im = Image.open("makets_predprof/map.png")
     drawer = ImageDraw.Draw(im)
     for anom in arr:
         r = sqrt(2500 * anom[2] / 2)
@@ -45,20 +41,13 @@ def draw_anomalous(arr):
             for j in range(height):
                 if x1 <= i * 50 <= x2 and y1 <= j * 50 <= y2:
                     used_cells.add((i, j))
-
+    for anom in arr:
+        drawer.ellipse((
+            (anom[0] * 50 - 25, anom[1] * 50 - 25),
+            (anom[0] * 50 + 25, anom[1] * 50 + 25)), fill=(0, 0, 250))
     fill_graph()
-    import pprint
-    pprint.pp(matrix)
-    im.save("map2.png")
+    im.save("makets_predprof/map2.png")
 
 
-s = (0, 0)
-f = (10, 30)
-used = {(i, j): 0 for i in range(width) for j in range(height)}
-dist = {(i, j): 10 ** 9 for i in range(width) for j in range(height)}
-pred = {(i, j): (-1, -1) for i in range(width) for j in range(height)}
-dist[s] = 0
-
-
-
-# draw_anomalous([(10, 10, 29), (15, 15, 30), (30, 30, 3)])
+if __name__ == "__main__":
+    draw_anomalous(get_data_anomauls())
