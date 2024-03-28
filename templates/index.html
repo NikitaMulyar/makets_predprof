@@ -3,6 +3,7 @@
 {% block content %}
 <main>
     <div class="container kvas">
+         {%if current_user.is_authenticated %}
         <form action="" method="post">
             {{ form.hidden_tag() }}
             <div class="row">
@@ -56,10 +57,11 @@
             </div>
             <p>{{ form.submit(type="submit", class="btn1 btn") }}</p>
               </form>
-
-
         <img src="/static/img/map.png" class="map pt-3">
-    </div>
+                {%else%}
+                <img src="/static/img/map.png" class="map pt-3">
+                {%endif%}
+       </div>
 
 </main>
 
