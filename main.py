@@ -32,9 +32,13 @@ def user():
 def login():
     return render_template('login.html')
 
-@app.route('register')
+@app.route('/register')
 def register():
     return render_template('register.html')
+
+@app.route('/add')
+def add():
+    return render_template('add.html')
 
 if __name__ == '__main__':
     app.run(port=int(port), host=host)
