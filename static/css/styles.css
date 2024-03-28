@@ -40,6 +40,9 @@ main > .container, main{
   padding-bottom: 5rem;
   padding-top: 3rem;
 }
+.kvas {
+    vertical-align: center !important;
+}
 .card {
     background-color: var(--background);
 }
@@ -62,8 +65,8 @@ main > .container, main{
     border: none;
 }
 .map {
-    width: auto;
-    height: 40%;
+    width: 100%;
+    height: auto;
 }
 .dropdown-toggle, .dropdown-toggle:hover {
     color: var(--primary);
