@@ -62,8 +62,8 @@ main > .container, main{
     border: none;
 }
 .map {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 40%;
 }
 .dropdown-toggle, .dropdown-toggle:hover {
     color: var(--primary);
