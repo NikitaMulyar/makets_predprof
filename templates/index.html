@@ -1,17 +1,66 @@
 {% extends "base.html" %}
 
-    {% block content %}
-        <main>
-            <div class="container kvas">
-                <form action="" method="post">
-
-                    <button type="submit" class="btn1 btn">куда идти, если я не хочу сдохнуть?</button>
-                </form>
-
-
-                <img src="/static/img/map.png" class="map pt-3">
+{% block content %}
+<main>
+    <div class="container kvas">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <div class="row">
+                <div class="col-sm-3">
+                    <p>
+                        {{ form.coor_ax.label }}<br>
+                        {{ form.coor_ax(class="form-control") }}<br>
+                        {% for error in form.coor_ax.errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                    </p>
+                </div>
+                <div class="col-sm-3">
+                    <p>
+                        {{ form.coor_ay.label }}<br>
+                        {{ form.coor_ay(class="form-control") }}<br>
+                        {% for error in form.coor_ay.errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                    </p>
+                </div>
             </div>
 
-        </main>
+            <div class="row">
+                <div class="col-sm-3">
+                    <p>
+                        {{ form.coor_bx.label }}<br>
+                        {{ form.coor_bx(class="form-control") }}<br>
+                        {% for error in form.coor_bx.errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                    </p>
+                </div>
+                <div class="col-sm-3">
+                    <p>
+                        {{ form.coor_by.label }}<br>
+                        {{ form.coor_by(class="form-control") }}<br>
+                        {% for error in form.coor_by.errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                    </p>
+                </div>
+            </div>
+            <p>{{ form.submit(type="submit", class="btn1 btn") }}</p>
+              </form>
 
-    {% endblock %}
+
+        <img src="/static/img/map.png" class="map pt-3">
+    </div>
+
+</main>
+
+{% endblock %}

@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, abort, request
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from forms.user import RegisterForm, LoginForm
 from forms.add_point import Point
+from forms.add_route import Route
 from data import db_session
 from data.users import User
 
@@ -15,9 +16,15 @@ path = f'http://{host}:{port}'
 
 
 # ГЛАВНАЯ СТРАНИЦА
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    form = Route()
+    if form.validate_on_submit():
+        coor_ax, coor_ay = form.coor_ax.data, form.coor_ay.data
+        coor_bx, coor_by = form.coor_bx.data, form.coor_by.data
+        print(coor_ax, coor_ay, coor_bx, coor_by)
+        return render_template('index.html', form=form)
+    return render_template('index.html', form=form)
 
 
 # ТУТ БУДЕТ ЛИЧНАЯ СТРАНИЧКА ПОЛЬЗОВАТЕЛЯ
