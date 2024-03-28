@@ -57,8 +57,7 @@ def register():
         user = User(
             name=form.name.data,
             email=form.email.data,
-            surname=form.surname.data,
-            speciality=form.speciality.data
+            surname=form.surname.data
         )
         user.set_password(form.password.data)
         db_sess.add(user)
@@ -80,5 +79,5 @@ def add():
     return render_template('add.html')
 
 if __name__ == '__main__':
-    # db_session.global_init("db/database.db")
+    db_session.global_init("db/database.db")
     app.run(port=int(port), host=host)
