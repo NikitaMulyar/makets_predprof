@@ -71,6 +71,10 @@ def logout():
     return redirect("/")
 
 
+@app.route('/add')
+def add():
+    return render_template('add.html')
+
 if __name__ == '__main__':
     # db_session.global_init("db/database.db")
     app.run(port=int(port), host=host)
