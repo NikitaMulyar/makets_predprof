@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, abort, request
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from forms.user import RegisterForm, LoginForm
+from forms.add_point import Point
 from data import db_session
 from data.users import User
 
@@ -74,9 +75,26 @@ def logout():
     return redirect("/")
 
 
-@app.route('/add')
+@app.route('/add', methods=['GET', 'POST'])
 def add():
-    return render_template('add.html')
+    form = Point()
+    if form.validate_on_submit():
+        if form.password.data != form.password_again.data:
+            return render_template('register.html', title='Регистрация', form=form, message="Пароли не совпадают")
+        db_sess = db_session.create_session()
+        if db_sess.query(User).filter(User.login == form.login.data).first():
+            return render_template('register.html', title='Регистрация', form=form,
+                                   message="Такой пользователь уже есть")
+        user = User(
+            name=form.name.data,
+            login=form.login.data,
+            surname=form.surname.data
+        )
+        user.set_password(form.password.data)
+        db_sess.add(user)
+        db_sess.commit()
+        return redirect('/')
+    return render_template('add.html', title='Изменить данные', form=form)
 
 
 @app.route('/graph')
