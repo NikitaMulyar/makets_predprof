@@ -35,6 +35,7 @@ header {
     background-color: var(--accent) !important;
     color: var(--background) !important;
 }
+
 main > .container, main{
   padding-bottom: 5rem;
   padding-top: 3rem;
@@ -50,16 +51,20 @@ main > .container, main{
     background-color: var(--accent);
 }
 .dropdown-item{
-    color: var(--text);
+    color: var(--background);
 }
 .dropdown-item:hover {
     background-color: var(--secondary);
+    color: var(--text);
 }
 .list-group > .active {
     background-color: var(--accent) !important;
     border: none;
 }
 .map {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 40%;
+}
+.dropdown-toggle, .dropdown-toggle:hover {
+    color: var(--primary);
 }

@@ -2,10 +2,10 @@
 
 
   {% block content%}
-    <main style="display: flex;">
+    <main style="display: flex; padding-top:5rem">
 
 
-<div id="userr" >
+<div id="userr">
     <div class="row mt-4" style="padding-left: 5%; padding-right: 35%;">
       <div class="col-6">
         <div class="list-group" id="list-tab" role="tablist" >
@@ -18,10 +18,9 @@
           <div class="tab-pane fade show active" id="user-info" role="tabpanel" aria-labelledby="list-home-list" style=" min-width: fit-content; margin-left: auto; width: max-content">
               <div>
                 <h5>Информация о пользователе:</h5>
-                <p><b>id: </b> xxxxxxx</p>
-                <p><b>Name: </b> Полуэкт </p>
-                <p><b>Surname: </b>Полуэктов</p>
-                <p><b>Email: </b>poluekt@xxmail.xx</p>
+                <p><b>id: </b> {{current_user.id}}</p>
+                <p><b>Name: </b> {{ current_user.name }}</p>
+                <p><b>Surname: </b>{{ current_user.surname }}</p>
             </div>
           </div>
 
