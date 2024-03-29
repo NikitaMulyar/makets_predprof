@@ -5,8 +5,8 @@ from wtforms.validators import DataRequired
 
 class Point(FlaskForm):
     id_point = IntegerField("Id детектора", validators=[DataRequired()])
-    coor_x = IntegerField("Координаты X", validators=[DataRequired()])
-    coor_y = IntegerField("Координаты Y", validators=[DataRequired()])
+    coor_x = IntegerField("Координаты X", default=0)
+    coor_y = IntegerField("Координаты Y", default=0)
 
     anomalia_id_1 = StringField("Id аномалии 1")
     anomali_rate_1 = FloatField("Радиация аномалии 1")

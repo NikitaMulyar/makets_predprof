@@ -58,15 +58,15 @@ def draw_anomalous(arr, s, f):
             drawer.line((path_[i - 1][0] * 50, path_[i - 1][1] * 50,
                          path_[i][0] * 50, path_[i][1] * 50), fill=(255, 255, 255), width=3)
         drawer.ellipse((
-            (path_[0][0] * 50 - 10, path_[0][1] * 50 - 10),
-            (path_[0][0] * 50 + 10, path_[0][1] * 50 + 10)), fill=(200, 200, 0))
+            (path_[0][0] * 50 - 20, path_[0][1] * 50 - 20),
+            (path_[0][0] * 50 + 20, path_[0][1] * 50 + 20)), fill=(200, 200, 0))
         drawer.text(
             (path_[0][0] * 50, path_[0][1] * 50),
             'A', font_size=80
         )
         drawer.ellipse((
-            (path_[-1][0] * 50 - 10, path_[-1][1] * 50 - 10),
-            (path_[-1][0] * 50 + 10, path_[-1][1] * 50 + 10)), fill=(200, 200, 0))
+            (path_[-1][0] * 50 - 20, path_[-1][1] * 50 - 20),
+            (path_[-1][0] * 50 + 20, path_[-1][1] * 50 + 20)), fill=(200, 200, 0))
         drawer.text(
             (path_[-1][0] * 50, path_[-1][1] * 50),
             'B', font_size=80
@@ -74,8 +74,8 @@ def draw_anomalous(arr, s, f):
     detectors = [el['coords'] for el in json.load(open('data.json', mode='rb'))]
     for idx, el in enumerate(detectors):
         drawer.ellipse((
-            (el[0] * 50 - 10, el[1] * 50 - 10),
-            (el[0] * 50 + 10, el[1] * 50 + 10)), fill=(200, 0, 200))
+            (el[0] * 50 - 20, el[1] * 50 - 20),
+            (el[0] * 50 + 20, el[1] * 50 + 20)), fill=(200, 0, 200))
         drawer.text(
             (el[0] * 50, el[1] * 50),
             f'Detector {idx + 1}', font_size=40
