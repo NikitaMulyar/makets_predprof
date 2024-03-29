@@ -3,6 +3,11 @@
 {% block content %}
 <main>
     <div class="container kvas">
+        {% if res %}
+        <div class="alert alert-info" role="alert">
+                        {{ res }}
+        </div>
+        {% endif %}
          {%if current_user.is_authenticated %}
         <form action="" method="post">
             {{ form.hidden_tag() }}

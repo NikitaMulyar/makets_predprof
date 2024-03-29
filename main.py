@@ -6,6 +6,8 @@ from forms.add_route import Route
 from data import db_session
 from data.users import User
 from map_parser import create_map
+from edit_detector import edit_detector
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key'
@@ -14,18 +16,22 @@ login_manager.init_app(app)
 host = '127.0.0.1'
 port = '5000'
 path = f'http://{host}:{port}'
+res = (None, None)
 
 
 # ГЛАВНАЯ СТРАНИЦА
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    global res
     form = Route()
+    t = (res[0], res[1])
+    res = (None, None)
     if form.validate_on_submit():
         coor_a = form.coor_ax.data, form.coor_ay.data
         coor_b = form.coor_bx.data, form.coor_by.data
         create_map(coor_a, coor_b)
-        return render_template('index.html', form=form)
-    return render_template('index.html', form=form)
+        return render_template('index.html', form=form, res=t[1])
+    return render_template('index.html', form=form, res=t[1])
 
 
 # ТУТ БУДЕТ ЛИЧНАЯ СТРАНИЧКА ПОЛЬЗОВАТЕЛЯ
@@ -87,17 +93,18 @@ def logout():
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
+    global res
     form = Point()
     if form.validate_on_submit():
         id_point = form.id_point.data
-        coor_x, coor_y = form.coor_x.data, form.coor_y
-        anomalia_id_1, anomalia_rate_1 = form.anomalia_id_1.data, form.anomali_rate_1
-        anomalia_id_2, anomalia_rate_2 = form.anomalia_id_2.data, form.anomali_rate_2
-        anomalia_id_3, anomalia_rate_3 = form.anomalia_id_3.data, form.anomali_rate_3
-        anomalia_id_4, anomalia_rate_4 = form.anomalia_id_4.data, form.anomali_rate_4
-        anomalia_id_5, anomalia_rate_5 = form.anomalia_id_5.data, form.anomali_rate_5
-        anomalia_id_6, anomalia_rate_6 = form.anomalia_id_6.data, form.anomali_rate_6
-
+        coors = form.coor_x.data, form.coor_y.data
+        anomalia_1 = form.anomalia_id_1.data, form.anomali_rate_1.data
+        anomalia_2 = form.anomalia_id_2.data, form.anomali_rate_2.data
+        anomalia_3 = form.anomalia_id_3.data, form.anomali_rate_3.data
+        anomalia_4 = form.anomalia_id_4.data, form.anomali_rate_4.data
+        anomalia_5 = form.anomalia_id_5.data, form.anomali_rate_5.data
+        anomalia_6 = form.anomalia_id_6.data, form.anomali_rate_6.data
+        res = edit_detector(id_point, coors, anomalia_1, anomalia_2, anomalia_3, anomalia_4, anomalia_5, anomalia_6)
         return redirect('/')
     return render_template('add.html', title='Изменить данные', form=form)
 
