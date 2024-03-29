@@ -89,20 +89,15 @@ def logout():
 def add():
     form = Point()
     if form.validate_on_submit():
-        if form.password.data != form.password_again.data:
-            return render_template('register.html', title='Регистрация', form=form, message="Пароли не совпадают")
-        db_sess = db_session.create_session()
-        if db_sess.query(User).filter(User.login == form.login.data).first():
-            return render_template('register.html', title='Регистрация', form=form,
-                                   message="Такой пользователь уже есть")
-        user = User(
-            name=form.name.data,
-            login=form.login.data,
-            surname=form.surname.data
-        )
-        user.set_password(form.password.data)
-        db_sess.add(user)
-        db_sess.commit()
+        id_point = form.id_point.data
+        coor_x, coor_y = form.coor_x.data, form.coor_y
+        anomalia_id_1, anomalia_rate_1 = form.anomalia_id_1.data, form.anomali_rate_1
+        anomalia_id_2, anomalia_rate_2 = form.anomalia_id_2.data, form.anomali_rate_2
+        anomalia_id_3, anomalia_rate_3 = form.anomalia_id_3.data, form.anomali_rate_3
+        anomalia_id_4, anomalia_rate_4 = form.anomalia_id_4.data, form.anomali_rate_4
+        anomalia_id_5, anomalia_rate_5 = form.anomalia_id_5.data, form.anomali_rate_5
+        anomalia_id_6, anomalia_rate_6 = form.anomalia_id_6.data, form.anomali_rate_6
+
         return redirect('/')
     return render_template('add.html', title='Изменить данные', form=form)
 
